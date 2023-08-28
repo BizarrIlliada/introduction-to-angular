@@ -14,7 +14,22 @@
   id="serverName2"
   [(ngModel)]="newServerName"
 >
-<button (click)="onCreateServer()" class="btn btn-primary" [disabled]="!allowNewServer">Add server</button>
-<p [style]="{'text-transform': 'capitalize'}">{{allowNewServer}}</p>
-{{ serverCreationStatus }}
-<app-server></app-server>
+<button (click)="onCreateServer()" class="btn btn-primary" [disabled]="!newServerName.trim()">Add server</button>
+<p
+  *ngIf="newServerName !== ''"
+  [ngStyle]="{ textTransform: 'capitalize' }"
+>
+  {{ newServerName.trim() !== '' }}
+</p>
+<p *ngIf="serverCreationStatus !== ''; else noServer" [ngClass]="{ 'white-text': 2 > 1 }">
+  {{ serverCreationStatus }}
+</p>
+<ng-template #noServer>
+  <p>
+    No server!
+  </p>
+</ng-template>
+<app-server
+  *ngFor="let server of servers; let i = index"
+  [ngStyle]="{ color: i >= 4 ? 'yellow' : 'blue' }"
+/>

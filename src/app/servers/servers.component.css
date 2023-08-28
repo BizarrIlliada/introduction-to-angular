@@ -2,3 +2,15 @@ input {
   max-width: 300px;
   margin-bottom: 5px;
 }
+
+p {
+  background-color: cornflowerblue;
+}
+
+.white-text {
+  color: white;
+}
+
+.green {
+  background-color: greenyellow;
+}
