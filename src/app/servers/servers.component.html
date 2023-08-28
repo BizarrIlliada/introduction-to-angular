@@ -1,4 +1,20 @@
-
 <h3>Servers:</h3>
-<app-server></app-server>
+<label for="serverName2">
+  Enter a new server name: {{newServerName}}
+</label>
+<input
+  class="form-control"
+  type="text"
+  id="serverName1"
+  (input)="onUpdateNewServerName($event)"
+>
+<input
+  class="form-control"
+  type="text"
+  id="serverName2"
+  [(ngModel)]="newServerName"
+>
+<button (click)="onCreateServer()" class="btn btn-primary" [disabled]="!allowNewServer">Add server</button>
+<p [style]="{'text-transform': 'capitalize'}">{{allowNewServer}}</p>
+{{ serverCreationStatus }}
 <app-server></app-server>

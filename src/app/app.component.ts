@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   buttonName = 'Bootstrap test button';
+
+  onSubmit() {
+    console.log('Button was clicked.');
+  }
 }
